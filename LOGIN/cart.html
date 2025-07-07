@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BookNest - Cart</title>
+  <link rel="stylesheet" href="cart.css" />
+</head>
+<body>
+
+  <!-- Top Navbar -->
+  <header class="navbar">
+    <div class="nav-content">
+      <img src="booknest_logo.png" alt="BookNest Logo" class="logo" />
+      <span class="site-name">BookNest</span>
+    </div>
+  </header>
+
+  <!-- Cart Section -->
+  <div class="cart-container">
+    <h1>Your Cart</h1>
+
+    <div class="cart-items" id="cart-items">
+      <!-- Sample Item -->
+      <div class="cart-item">
+        <img src="book_sample.jpg" alt="Book Cover" />
+        <div class="item-info">
+          <h3>Book Title</h3>
+          <p>by Author Name</p>
+          <div class="price-qty">
+            <span>₹499</span>
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <input type="number" value="1" readonly />
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+        <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+      </div>
+    </div>
+
+    <div class="cart-summary">
+      <p>Total: ₹<span id="total">499</span></p>
+      <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <script>
+    function changeQty(btn, delta) {
+      const input = btn.parentElement.querySelector('input');
+      let qty = parseInt(input.value);
+      qty = Math.max(1, qty + delta);
+      input.value = qty;
+      updateTotal();
+    }
+
+    function removeItem(btn) {
+      const item = btn.closest('.cart-item');
+      item.remove();
+      updateTotal();
+    }
+
+    function updateTotal() {
+      const items = document.querySelectorAll('.cart-item');
+      let total = 0;
+      items.forEach(item => {
+        const price = parseFloat(item.querySelector('.price-qty span').textContent.replace('₹', ''));
+        const qty = parseInt(item.querySelector('input').value);
+        total += price * qty;
+      });
+      document.getElementById('total').textContent = total;
+    }
+  </script>
+
+</body>
+</html>

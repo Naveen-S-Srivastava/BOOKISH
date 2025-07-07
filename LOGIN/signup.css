@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #e1f5fe, #f8fdff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.signup-container {
+  width: 100%;
+  max-width: 550px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1.8rem;
+  color: #003c8f;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+form label {
+  display: block;
+  margin: 1rem 0 0.3rem;
+  font-weight: 500;
+  color: #2a2a2a;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #ccd6dd;
+  border-radius: 10px;
+  outline: none;
+  font-size: 0.95rem;
+  background-color: #f9fbfc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #2196f3;
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.3);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #f9fbfc;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' fill='gray' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+}
+
+input[type="file"] {
+  padding: 6px 0;
+  border: none;
+  background-color: transparent;
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+  color: #555;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background: #0d47a1;
+}
+
+.btn-submit {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #2196f3, #0d47a1);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btn-submit:hover {
+  background: linear-gradient(to right, #1565c0, #002171);
+  transform: translateY(-2px);
+}
+
+.error-message {
+  color: #d32f2f;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .signup-container {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  form input,
+  form select,
+  form textarea {
+    font-size: 0.92rem;
+  }
+}
